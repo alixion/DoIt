@@ -1,0 +1,7 @@
+﻿dotnet ef migrations add NewMigration --output-dir Data/Migrations
+
+
+dotnet ef migrations add NewMigration --output-dir Data/Migrations --project ../DoIt.Infrastructure
+dotnet ef migrations add NewMigration --output-dir Data/Migrations --startup-project ../DoIt.Api
+
+dotnet ef migrations script --context DoItContext -output-dir ../DoIt.DbMigrator/Sql/new-migration.sql
