@@ -27,6 +27,9 @@ Write-Host "==========================="
 exec { & docker-compose up -d}
 
 
+Push-Location -Path ./tests/DoIt.DomainTests
+exec {& dotnet test}
+
 try
 {
 #    Write-Host "Restoring solution"
@@ -39,23 +42,23 @@ try
 #    
 #    Write-Host "Building solution. Version suffix is $buildSuffix"
 #    Write-Host "================================================="
-#    exec { & dotnet build CleanApi.sln -c Release --version-suffix=$buildSuffix -v q /nologo }
+#    exec { & dotnet build DoIt.sln -c Release --version-suffix=$buildSuffix -v q /nologo }
     
     Write-Host "Publish DbUp Console App"
     Write-Host "========================"
     # Todo: set runtime depending on where it runs
     # Does not run with --no-build
-    exec { & dotnet publish ./src/CleanApi.DbMigrator/CleanApi.DbMigrator.csproj -r win-x64 -c Release --nologo -o ./DbUp /p:PublishSingleFile=true }
+    exec { & dotnet publish ./src/DoIt.DbMigrator/DoIt.DbMigrator.csproj -r win-x64 -c Release --nologo -o ./DbUp /p:PublishSingleFile=true }
     
     Write-Host "Running DbUp Sql Scripts"
     Write-Host "========================"
-    exec {& ./DbUp/CleanApi.DbMigrator.exe "Host=localhost;Database=CleanApiDb;Uid=postgres;Pwd=Parola.1" "src/CleanApi.DbMigrator/Sql/" drop-if-exists}
+    exec {& ./DbUp/DoIt.DbMigrator.exe "Host=localhost;Database=DoItDb;Uid=postgres;Pwd=Parola.1" "src/DoIt.DbMigrator/Sql/" drop-if-exists}
     
     Write-Host "Running Application IntegrationTests"
     Write-Host "===================================="
 
-    $env:ConnectionStrings:DefaultConnection='Host=localhost;Database=CleanApiDb;Uid=postgres;Pwd=Parola.1'
-    Push-Location -Path ./tests/CleanApi.Application.IntegrationTests
+    $env:ConnectionStrings:DefaultConnection='Host=localhost;Database=DoItDb;Uid=postgres;Pwd=Parola.1'
+    Push-Location -Path ./tests/DoIt.Application.IntegrationTests
     exec {& dotnet test}
 }
 finally

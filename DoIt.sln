@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoIt.DbMigrator", "src\DoIt.DbMigrator\DoIt.DbMigrator.csproj", "{EB023144-85E5-4A73-BEA9-78B066074283}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoIt.ApplicationTests", "tests\DoIt.ApplicationTests\DoIt.ApplicationTests.csproj", "{90DC9AFF-8BD9-45D6-A1F2-7A0017244D63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{EB023144-85E5-4A73-BEA9-78B066074283}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB023144-85E5-4A73-BEA9-78B066074283}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB023144-85E5-4A73-BEA9-78B066074283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90DC9AFF-8BD9-45D6-A1F2-7A0017244D63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90DC9AFF-8BD9-45D6-A1F2-7A0017244D63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90DC9AFF-8BD9-45D6-A1F2-7A0017244D63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90DC9AFF-8BD9-45D6-A1F2-7A0017244D63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{34875E26-DBDB-4CC5-B792-962A29FA1DAC} = {FE90CE43-33F5-4E84-ABBB-C6E0EE042D7A}
 		{22A237FF-784F-4920-BD4E-92D8F74E4B3A} = {FE90CE43-33F5-4E84-ABBB-C6E0EE042D7A}
 		{EB023144-85E5-4A73-BEA9-78B066074283} = {FE90CE43-33F5-4E84-ABBB-C6E0EE042D7A}
+		{90DC9AFF-8BD9-45D6-A1F2-7A0017244D63} = {5FB3387D-7D06-46E5-8261-F9451A9D0104}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {153804D9-6539-4FFD-B8F8-B26C44D2ED8C}

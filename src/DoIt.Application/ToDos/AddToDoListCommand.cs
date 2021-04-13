@@ -10,7 +10,12 @@ namespace DoIt.Application.ToDos
 {
     public class AddToDoListCommand:IRequest<ToDoListDto>
     {
-        public string Title { get; set; }
+        public AddToDoListCommand(string title)
+        {
+            Title = title;
+        }
+
+        public string Title { get;  }
     }
     
     public class AddToDoListCommandHandler:IRequestHandler<AddToDoListCommand,ToDoListDto>
@@ -27,6 +32,7 @@ namespace DoIt.Application.ToDos
         {
             var list = new ToDoList(request.Title);
             var createdItem = await _repository.AddAsync(list);
+            
             return _mapper.Map<ToDoListDto>(createdItem);
         }
     }

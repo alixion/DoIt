@@ -17,7 +17,7 @@ namespace DoIt.Application.ToDos
             Title = title;
         }
 
-        public Guid ListId { get; set; }
+        public Guid ListId { get;  }
         public string Title { get; }
     }
     

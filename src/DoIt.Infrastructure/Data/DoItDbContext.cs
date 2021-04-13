@@ -12,7 +12,7 @@ namespace DoIt.Infrastructure.Data
         public DoItDbContext(DbContextOptions<DoItDbContext> options):base(options)
         {}
 
-        public DoItDbContext(DbContextOptions<DoItDbContext> options, IMediator mediator)
+        public DoItDbContext(DbContextOptions<DoItDbContext> options, IMediator mediator):base(options)
         {
             _mediator = mediator;
         }
