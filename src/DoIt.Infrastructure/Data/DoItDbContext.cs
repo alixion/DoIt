@@ -1,4 +1,5 @@
 ﻿using DoIt.Domain;
+using DoIt.Domain.TodoListAggregate;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,7 +19,7 @@ namespace DoIt.Infrastructure.Data
         }
 
 
-        public DbSet<ToDoList> ToDoLists { get; set; }
+        public DbSet<TodoList> ToDoLists { get; set; }
         
         
         

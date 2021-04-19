@@ -1,12 +1,15 @@
 ﻿using System;
 using Ardalis.GuardClauses;
+using DoIt.Domain.Common;
 
-namespace DoIt.Domain
+namespace DoIt.Domain.TodoListAggregate
 {
-    public class ToDoItem
+    public class TodoItem:AuditableEntity
     {
-        public ToDoItem(string title)
+        public TodoItem(string title)
         {
+            Guard.Against.NullOrWhiteSpace(title, nameof(Title));
+            
             Id = Guid.NewGuid();
             Title = title;
             Done = false;

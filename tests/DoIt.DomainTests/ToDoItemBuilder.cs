@@ -1,10 +1,11 @@
 ﻿using DoIt.Domain;
+using DoIt.Domain.TodoListAggregate;
 
 namespace DoIt.DomainTests
 {
     public class ToDoItemBuilder
     {
-        private ToDoItem _todo;
+        private TodoItem _todo;
 
         public ToDoItemBuilder Title(string title)
         {
@@ -32,10 +33,10 @@ namespace DoIt.DomainTests
 
         public ToDoItemBuilder WithDefaultValues()
         {
-            _todo = new ToDoItem("Test Item");
+            _todo = new TodoItem("Test Item");
             return this;
         }
 
-        public ToDoItem Build() => _todo;
+        public TodoItem Build() => _todo;
     }
 }

@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DoIt.Domain;
 using DoIt.Domain.Common;
+using DoIt.Domain.TodoListAggregate;
 using MediatR;
 
 namespace DoIt.Application.ToDos
 {
-    public class AddToDoItemCommand:IRequest<ToDoItemDto>
+    public class AddTodoItemCommand:IRequest<TodoItemDto>
     {
-        public AddToDoItemCommand(string title)
+        public AddTodoItemCommand(string title)
         {
             
             Title = title;
@@ -21,24 +22,24 @@ namespace DoIt.Application.ToDos
         public string Title { get; }
     }
     
-    public class AddToDoItemCommandHandler:IRequestHandler<AddToDoItemCommand,ToDoItemDto>
+    public class AddTodoItemCommandHandler:IRequestHandler<AddTodoItemCommand,TodoItemDto>
     {
-        private readonly IRepository<ToDoList, Guid> _repository;
+        private readonly IRepository<TodoList, Guid> _repository;
         private readonly IMapper _mapper;
 
-        public AddToDoItemCommandHandler(IRepository<ToDoList,Guid> repository, IMapper mapper)
+        public AddTodoItemCommandHandler(IRepository<TodoList,Guid> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
-        public async Task<ToDoItemDto> Handle(AddToDoItemCommand request, CancellationToken cancellationToken)
+        public async Task<TodoItemDto> Handle(AddTodoItemCommand request, CancellationToken cancellationToken)
         {
             var list = await _repository.GetByIdAsync(request.ListId);
             var todoId = list.AddToDo(request.Title);
 
             await _repository.UpdateAsync(list);
 
-            return _mapper.Map<ToDoItemDto>(list.Items.Single(x => x.Id == todoId));
+            return _mapper.Map<TodoItemDto>(list.Items.Single(x => x.Id == todoId));
         }
     }
 }

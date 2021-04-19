@@ -1,30 +1,31 @@
 ﻿using DoIt.Domain;
+using DoIt.Domain.TodoListAggregate;
 
 namespace DoIt.DomainTests
 {
     public class ToDoListBuilder
     {
-        private ToDoList _toDoList;
+        private TodoList _todoList;
 
         public ToDoListBuilder Title(string title)
         {
-            _toDoList.ChangeTitle(title);
+            _todoList.ChangeTitle(title);
             return this;
         }
 
 
         public ToDoListBuilder WithDefaultValues()
         {
-            _toDoList = new ToDoList("Test List");
+            _todoList = new TodoList("Test List");
             return this;
         }
 
         public ToDoListBuilder WithOneItem()
         {
-            _toDoList.AddToDo("Test Item");
+            _todoList.AddToDo("Test Item");
             return this;
         }
 
-        public ToDoList Build() => _toDoList;
+        public TodoList Build() => _todoList;
     }
 }
