@@ -11,7 +11,7 @@ namespace DoIt.Domain.Common
         Task<List<TEntity>> ListAsync(ISpecification<TEntity> spec);
         
         Task<TEntity> AddAsync(TEntity item);
-        Task UpdateAsync<TEntity>(TEntity item);
+        Task UpdateAsync(TEntity item);
         Task DeleteAsync(TEntity item);
     }
 }

@@ -13,13 +13,13 @@ namespace DoIt.Domain.TodoListAggregate
             Id = Guid.NewGuid();
             Title = title;
             Done = false;
-            Note = default(string);
+            Note = default;
         }
 
         public Guid Id { get; }
         public string Title { get; private set; }
         public bool Done { get; private set; }
-        public string Note { get; private set; }
+        public string? Note { get; private set; }
         
         
         public void SetNote(string note)

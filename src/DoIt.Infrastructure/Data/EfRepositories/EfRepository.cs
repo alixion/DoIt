@@ -39,7 +39,7 @@ namespace DoIt.Infrastructure.Data.EfRepositories
             return item;
         }
 
-        public async Task UpdateAsync<TEntity>(TEntity item)
+        public async Task UpdateAsync(TEntity item)
         {
             _context.Entry(item).State = EntityState.Modified;
             await _context.SaveChangesAsync();
