@@ -4,14 +4,14 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-      <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" Version="5.0.3" />
+      <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" Version="5.1.0" />
       <PackageReference Include="EFCore.NamingConventions" Version="5.0.2" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5">
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.7">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.5" />
-      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.7" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.7" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\DoIt.Application\DoIt.Application.csproj" />
