@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Xunit;
 using FluentAssertions;
 
-namespace DoIt.DomainTests.ToDoLists
+namespace DoIt.DomainTests.TodoLists
 {
     public class ListItemsTests
     {
@@ -14,7 +14,7 @@ namespace DoIt.DomainTests.ToDoLists
         [Fact]
         public void CanAddItemsToList()
         {
-            var list = new ToDoListBuilder()
+            var list = new TodoListBuilder()
                 .WithDefaultValues()
                 .Build();
 
@@ -28,7 +28,7 @@ namespace DoIt.DomainTests.ToDoLists
         [Fact]
         public void CanRemoveItemsFromList()
         {
-            var list = new ToDoListBuilder()
+            var list = new TodoListBuilder()
                 .WithDefaultValues()
                 .WithOneItem()
                 .Build();

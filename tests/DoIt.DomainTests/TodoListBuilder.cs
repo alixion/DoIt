@@ -3,24 +3,24 @@ using DoIt.Domain.TodoListAggregate;
 
 namespace DoIt.DomainTests
 {
-    public class ToDoListBuilder
+    public class TodoListBuilder
     {
         private TodoList _todoList;
 
-        public ToDoListBuilder Title(string title)
+        public TodoListBuilder Title(string title)
         {
             _todoList.ChangeTitle(title);
             return this;
         }
 
 
-        public ToDoListBuilder WithDefaultValues()
+        public TodoListBuilder WithDefaultValues()
         {
             _todoList = new TodoList("Test List");
             return this;
         }
 
-        public ToDoListBuilder WithOneItem()
+        public TodoListBuilder WithOneItem()
         {
             _todoList.AddToDo("Test Item");
             return this;

@@ -1,28 +1,25 @@
-﻿using DoIt.DomainTests;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Xunit;
 
-namespace DoIt.Domain.Tests.ToDoItems
+namespace DoIt.DomainTests.TodoItems
 {
-    public class ToDoItemCompleteTests
+    public class TodoItemCompleteTests
     {
         [Fact]
         public void MarksItemAsDone()
         {
-            var todo = new ToDoItemBuilder()
+            var todo = new TodoItemBuilder()
                 .WithDefaultValues()
                 .Build();
 
             todo.MarkDone();
             todo.Done.Should().BeTrue();
-
-
         }
 
         [Fact]
-        public void MarksItemAsNotdone()
+        public void MarksItemAsNotDone()
         {
-            var todo = new ToDoItemBuilder()
+            var todo = new TodoItemBuilder()
                 .WithDefaultValues()
                 .Done()
                 .Build();

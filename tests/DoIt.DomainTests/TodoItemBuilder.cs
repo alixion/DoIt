@@ -3,35 +3,35 @@ using DoIt.Domain.TodoListAggregate;
 
 namespace DoIt.DomainTests
 {
-    public class ToDoItemBuilder
+    public class TodoItemBuilder
     {
         private TodoItem _todo;
 
-        public ToDoItemBuilder Title(string title)
+        public TodoItemBuilder Title(string title)
         {
             _todo.ChangeTitle(title);
             return this;
         }
 
-        public ToDoItemBuilder Note(string note)
+        public TodoItemBuilder Note(string note)
         {
             _todo.SetNote(note);
             return this;
         }
 
-        public ToDoItemBuilder Done()
+        public TodoItemBuilder Done()
         {
             _todo.MarkDone();
             return this;
         }
 
-        public ToDoItemBuilder Notdone()
+        public TodoItemBuilder Notdone()
         {
             _todo.MarkUndone();
             return this;
         }
 
-        public ToDoItemBuilder WithDefaultValues()
+        public TodoItemBuilder WithDefaultValues()
         {
             _todo = new TodoItem("Test Item");
             return this;

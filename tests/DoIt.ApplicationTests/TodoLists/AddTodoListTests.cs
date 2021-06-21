@@ -7,14 +7,14 @@ using DoIt.Domain.TodoListAggregate;
 using FluentAssertions;
 using Xunit;
 
-namespace DoIt.ApplicationTests.ToDoLists
+namespace DoIt.ApplicationTests.TodoLists
 {
     [Collection(nameof(SliceFixture))]
-    public class AddToDoListTests
+    public class AddTodoListTests
     {
         private readonly SliceFixture _fixture;
 
-        public AddToDoListTests(SliceFixture fixture)
+        public AddTodoListTests(SliceFixture fixture)
         {
             _fixture = fixture;
         }
