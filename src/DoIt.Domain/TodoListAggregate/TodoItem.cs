@@ -20,6 +20,8 @@ namespace DoIt.Domain.TodoListAggregate
         public string Title { get; private set; }
         public bool Done { get; private set; }
         public string? Note { get; private set; }
+
+        public Guid TodoListId { get; set; }
         
         
         public void SetNote(string note)

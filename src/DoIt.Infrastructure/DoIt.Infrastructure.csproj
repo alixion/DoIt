@@ -16,4 +16,7 @@
     <ItemGroup>
       <ProjectReference Include="..\DoIt.Application\DoIt.Application.csproj" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Data\Migrations" />
+    </ItemGroup>
 </Project>

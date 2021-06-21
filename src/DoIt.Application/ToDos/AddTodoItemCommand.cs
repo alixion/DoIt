@@ -12,9 +12,9 @@ namespace DoIt.Application.ToDos
 {
     public class AddTodoItemCommand:IRequest<TodoItemDto>
     {
-        public AddTodoItemCommand(string title)
+        public AddTodoItemCommand(Guid listId, string title)
         {
-            
+            ListId = listId;
             Title = title;
         }
 
