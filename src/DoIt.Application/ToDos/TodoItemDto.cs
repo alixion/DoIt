@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DoIt.Application.Common;
 using DoIt.Domain;
 using DoIt.Domain.TodoListAggregate;
@@ -11,5 +12,6 @@ namespace DoIt.Application.ToDos
         public string Title { get; set; }
         public string Note { get; set; }
         public bool Done { get; set; }
+        public Guid TodoListId { get; set; }
     }
 }

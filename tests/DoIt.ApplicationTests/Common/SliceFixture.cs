@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
+using AutoMapper;
 using DoIt.Application;
 using DoIt.Infrastructure;
 using DoIt.Infrastructure.Data;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Npgsql;
+using Respawn;
 using Xunit;
 
 namespace DoIt.ApplicationTests.Common
@@ -15,13 +18,27 @@ namespace DoIt.ApplicationTests.Common
     {
     }
 
-    public class SliceFixture : IDisposable
+    public class SliceFixture : IAsyncLifetime
     {
         private readonly IServiceScope _scope;
         public IServiceScope Scope => _scope;
         private readonly ServiceProvider _serviceProvider;
         private readonly DoItDbContext _context;
         private readonly IConfiguration _config;
+
+        private readonly Checkpoint _checkpoint = new()
+        {
+            TablesToIgnore = new[]
+            {
+                "schemaversions",
+                "__EFMigrationsHistory"
+            },
+            SchemasToInclude = new []
+            {
+                "public"
+            },
+            DbAdapter = DbAdapter.Postgres
+        };
 
         public SliceFixture()
         {
@@ -43,9 +60,10 @@ namespace DoIt.ApplicationTests.Common
 
             _scope = CreateScope();
             _context = _scope.ServiceProvider.GetService<DoItDbContext>();
+
+            var mapper = _serviceProvider.GetService<IMapper>();
+            mapper.ConfigurationProvider.AssertConfigurationIsValid();
         }
-
-
 
         public async Task<TEntity> FindAsync<TEntity, TKey>(TKey id)
             where TEntity : class
@@ -87,6 +105,19 @@ namespace DoIt.ApplicationTests.Common
         {
             _scope?.Dispose();
             _serviceProvider?.Dispose();
+        }
+
+        public async Task InitializeAsync()
+        {
+            await using var conn = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
+            
+            await conn.OpenAsync();
+            await _checkpoint.Reset(conn);
+        }
+
+        public Task DisposeAsync()
+        {
+            return Task.CompletedTask;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,7 +11,6 @@ namespace DoIt.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
-
 
             return services;
         }

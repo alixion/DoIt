@@ -10,10 +10,10 @@ namespace DoIt.Application.ToDos
     {
         public TodoListDto()
         {
-            ToDoItems = new List<TodoItemDto>();
+            Items = new List<TodoItemDto>();
         }
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public List<TodoItemDto> ToDoItems { get; set; }
+        public IReadOnlyCollection<TodoItemDto> Items { get; set; }
     }
 }

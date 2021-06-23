@@ -39,7 +39,9 @@ namespace DoIt.Application.ToDos
 
             await _repository.UpdateAsync(list);
 
-            return _mapper.Map<TodoItemDto>(list.Items.Single(x => x.Id == todoId));
+            var todoItem = list.Items.Single(x => x.Id == todoId);
+
+            return _mapper.Map<TodoItem, TodoItemDto>(list.Items.Single(x => x.Id == todoId));
         }
     }
 }
