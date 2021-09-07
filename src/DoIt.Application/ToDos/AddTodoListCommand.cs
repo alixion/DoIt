@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using DoIt.Domain;
 using DoIt.Domain.Common;
 using DoIt.Domain.TodoListAggregate;
 using MediatR;
